@@ -7,6 +7,12 @@ import ManageForm from './ManageForm';
 export default function DisplayInfo() {
     const [user,userInfo] = React.useState<IAddUser[]>([])
     const [open, setOpen] = React.useState<boolean>(false);
+    const [editUser, setEditUser] = React.useState<IAddUser>({
+        name: '',
+        avatar: '', 
+        email: '',
+        phoneNumber: ''
+    });
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -22,7 +28,7 @@ export default function DisplayInfo() {
   { field: 'createdAt', headerName: 'Created At', width: 300 },
   {field:'', headerName:"action", width: 300, renderCell:(params)=>{
 
-    console.log(params.row);
+  
 
     return (<><button onClick={()=>{
         axios.delete(`https://69e7162a68208c1debe84b16.mockapi.io/UserInfo/${params.row.id}`)
@@ -34,7 +40,14 @@ export default function DisplayInfo() {
 
 <button onClick={()=>{
     handleClickOpen();
-        
+        setEditUser({
+            name: params.row.name,
+            avatar: params.row.avatar,
+            email: params.row.email,
+            phoneNumber: params.row.phoneNumber,
+            id: params.row.id,
+            createdAt: params.row.createdAt
+        })
   }}>Edit</button>
   
 
@@ -52,12 +65,29 @@ export default function DisplayInfo() {
 
 
     }, [])
+
+    const handleSubmit = () => {
+      
+
+        console.log(editUser);
+
+
+        axios.put(`https://69e7162a68208c1debe84b16.mockapi.io/UserInfo/${editUser.id}`,editUser)
+        .then(a=>{  
+            console.log(a.data);
+            userInfo(user.map((u)=> u.id === editUser.id ? editUser : u))
+            handleClose();
+        }).catch((err)=>{
+            console.log(err);
+        })
+
+    }
    
   return (
   <div style={{ height: 300, width: '100%' }}>
       <DataGrid rows={user} columns={columns} />
 
-      <ManageForm open={open} handleClose={handleClose} />
+      <ManageForm open={open} handleClose={handleClose} editUser={editUser} setEditUser={setEditUser}  handleSubmit={handleSubmit}/>
     </div>
   )
 }

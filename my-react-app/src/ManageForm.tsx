@@ -7,6 +7,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { Button } from '@mui/material';
 
 export default function ManageForm(props:any) {
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        props.setEditUser({ ...props.editUser, [name]: value });
+      }
   return (
     <Dialog
         open={props.open}
@@ -18,15 +23,29 @@ export default function ManageForm(props:any) {
         <DialogTitle>{"Use Google's location service?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
+
+            <form onSubmit={props.handleSubmit}>
+                <input type="text" placeholder='Name' 
+                value={props.editUser.name} 
+                 name='name' onChange={handleChange} />
+                <input type="text" placeholder='Avatar' 
+                value={props.editUser.avatar} 
+                 name='avatar' onChange={handleChange} />
+                <input type="email" placeholder='Email' 
+                value={props.editUser.email} 
+                 name='email' onChange={handleChange} />
+                <input type="text" placeholder='Phone Number'
+                 value={props.editUser.phoneNumber} 
+                 name='phoneNumber' onChange={handleChange} />
+            </form>
+          
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.handleClose} autoFocus>
-            Disagree
+          <Button onClick={props.handleSubmit} autoFocus>
+            Save
           </Button>
-          <Button onClick={props.handleClose}>Agree</Button>
+          <Button onClick={props.handleClose}>Cancel</Button>
         </DialogActions>
       </Dialog>
   )
