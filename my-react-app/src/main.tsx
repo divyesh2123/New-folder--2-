@@ -10,9 +10,10 @@ import './global/globalaxios.ts'
 import AddUser from './AddUser.tsx'
 import DisplayInfo from './Display.tsx'
 import Registration from './Registration.tsx'
+import LoginWithMUI from './LoginWithMUI.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Registration />
+    <LoginWithMUI />
   </StrictMode>,
 )
