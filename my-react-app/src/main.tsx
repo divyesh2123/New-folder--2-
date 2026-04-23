@@ -9,9 +9,10 @@ import UserInfo from './UserInfo.tsx'
 import './global/globalaxios.ts'
 import AddUser from './AddUser.tsx'
 import DisplayInfo from './Display.tsx'
+import Registration from './Registration.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <DisplayInfo />
+    <Registration />
   </StrictMode>,
 )

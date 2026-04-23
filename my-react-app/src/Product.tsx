@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import type IProduct from './interface/IProduct';
-import ProductDetails from './ProductDetails';
-
+import { DataGrid, type GridColDef } from '@mui/x-data-grid';
 
 export default function Product() {
 
@@ -15,16 +14,25 @@ export default function Product() {
         .catch(err=>console.log(err))
 
      },[])
- 
 
+     const columns: GridColDef[] = [
+        { field: 'id', headerName: 'ID', width: 70 },
+        { field: 'title', headerName: 'Title', width: 200 },
+        { field: 'price', headerName: 'Price', width: 100 },
+        { field: 'description', headerName: 'Description', width: 300 },
+        { field: 'category', headerName: 'Category', width: 150 },
+        { field: 'image', headerName: 'Image URL', width: 200 },
+      ];
+ 
      
   return (
-    <div>{
-        product.map((val:IProduct,index:number)=>{
-
-            return <ProductDetails product={val} index={index}></ProductDetails>
-        })
-        
-        }</div>
+    <div style={{ height: 400, width: '100%' }}>
+      <DataGrid
+        rows={product}
+        columns={columns}
+      
+        checkboxSelection
+      />
+    </div>
   )
 }
