@@ -27,6 +27,7 @@ export default function LoginWithMUI() {
           headers: {
             'Content-Type': "application/json" }}).then((response)=>{
               console.log(response.data);
+              localStorage.setItem("userInfo",JSON.stringify(response.data))
         }).catch((error)=>{
           console.log(error);   });
         
@@ -57,7 +58,7 @@ export default function LoginWithMUI() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
+          
         />      
         <Button color="primary" variant="contained" fullWidth type="submit">
           Submit
