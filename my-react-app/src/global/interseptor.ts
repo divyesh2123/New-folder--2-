@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { type AxiosRequestConfig, type AxiosResponse, type InternalAxiosRequestConfig } from "axios";
 
 const baseUrlInfo= "http://localhost:8080/api";
   const tokeninfo = JSON.parse(localStorage.getItem("userInfo")??"{}");
@@ -6,7 +6,7 @@ const authFetch = axios.create({
     baseURL: baseUrlInfo
 })
 
-authFetch.interceptors.request.use((config: any)=>
+authFetch.interceptors.request.use((config: InternalAxiosRequestConfig)=>
 {
 
   
@@ -21,19 +21,12 @@ authFetch.interceptors.request.use((config: any)=>
 });
 
 
-authFetch.interceptors.response.use((response:any)=>{
+authFetch.interceptors.response.use((response: AxiosResponse)=>{
 
     if(response.status === 403){
       
 
-       axios.post(`${baseUrlInfo}/auth/refreshtoken`,{
-         "refreshToken":tokeninfo.refreshToken
-       }).then(a=>{
-
-        localStorage.setItem("userInfo",JSON.stringify(a.data));
-        window.location.reload();
-
-       });
+      
 
 
        //code to call the refresh token api
@@ -41,14 +34,7 @@ authFetch.interceptors.response.use((response:any)=>{
 
     }   
     else if(response.status === 401){
-          axios.post(`${baseUrlInfo}/auth/refreshtoken`,{
-         "refreshToken":tokeninfo.refreshToken
-       }).then(a=>{
-
-        localStorage.setItem("userInfo",JSON.stringify(a.data));
-        window.location.reload();
-
-       })
+         
     }
     else if(response.status === 400)
     {

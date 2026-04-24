@@ -16,7 +16,8 @@ import UserDetails from './UserDetails.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
    
-    <LoginWithMUI/>
-    <UserDetails/>
+    {/* <LoginWithMUI/>
+    <UserDetails/> */}
+    <App />
   </StrictMode>,
 )

@@ -7,3 +7,8 @@ export default interface IProduct {
   image: string;
 
 }
+
+export interface IlanguageContext {
+    lan: string;
+    setLan: React.Dispatch<React.SetStateAction<string>>;
+}
