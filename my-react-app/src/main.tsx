@@ -12,6 +12,7 @@ import DisplayInfo from './Display.tsx'
 import Registration from './Registration.tsx'
 import LoginWithMUI from './LoginWithMUI.tsx'
 import UserDetails from './UserDetails.tsx'
+import Parent from './Parent.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

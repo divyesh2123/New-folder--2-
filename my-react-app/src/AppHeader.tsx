@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import LanguageContext from './dataInfo/LanguageContext';
 import type { IlanguageContext } from './interface/IProduct';
+import { Link } from 'react-router';
 
 export default function AppHeader() {
 
@@ -13,6 +14,15 @@ export default function AppHeader() {
             <option value="fr">French</option>
             <option value="es">Spanish</option>
         </select>
+        <ul>
+
+          <li>
+            <Link to='/'>Home</Link>
+            <Link to='/formik'>Formik</Link>
+            <Link to='/display'>Display</Link>
+           
+          </li>
+        </ul>
     </div>
   )
 }

@@ -6,7 +6,8 @@ import ReCAPTCHA from 'react-google-recaptcha';
 const validationSchema = Yup.object({
   firstname: Yup.string().required('First name is required'),
   lastname: Yup.string().required('Last name is required'),
-  email: Yup.string().email('Invalid email').required('Email is required').test('email-exists', 'Email already exists', (value) => {
+  email: Yup.string().email('Invalid email').required('Email is required').
+  test('email-exists', 'Email already exists', (value) => {
     const existingEmails = ['test@example.com', 'user@domain.com']; // Mock existing emails
     return !existingEmails.includes(value);
   }),

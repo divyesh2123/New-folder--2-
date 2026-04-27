@@ -8,6 +8,10 @@ export default function Home() {
     const handleClick = () => {
         setcounter(counter + 1);
     }
+
+    if(counter === 2) {
+        throw new Error("Counter reached 2");
+    }
     
   return (
     <div>
