@@ -6,6 +6,7 @@ export default function Home() {
     const [counter,setcounter] = useState<number>(0);
     
     const handleClick = () => {
+    
         setcounter(counter + 1);
     }
 

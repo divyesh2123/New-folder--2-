@@ -1,8 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from '../slice/counterslice'
-const store = configureStore({
+import userReducer from '../slice/userslice'
+const store = configureStore<{
+    counter: ReturnType<typeof counterReducer>;
+    userInfo: ReturnType<typeof userReducer>;
+}>({
     reducer: {
-        counter:counterReducer
+        counter:counterReducer,
+        userInfo:userReducer
        
     },
 });

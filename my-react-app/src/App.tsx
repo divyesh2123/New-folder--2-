@@ -13,6 +13,7 @@ import ExampleRef from './ExampleRef';
 import {Provider}  from 'react-redux';
 import store from './store/store';
 import CounterExample from './CounterExample';
+import UserRedux from './UserRedux';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
       
       <Route path="/counter" element={<CounterExample/>}/>
       <Route path="*" element={<div>Page Not Found</div>}/>
+      <Route path="/userredux" element={<UserRedux/>}/>
      </Routes>
   
       </BrowserRouter>
