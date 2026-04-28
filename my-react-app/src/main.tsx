@@ -13,6 +13,7 @@ import Registration from './Registration.tsx'
 import LoginWithMUI from './LoginWithMUI.tsx'
 import UserDetails from './UserDetails.tsx'
 import Parent from './Parent.tsx'
+import ExampleReducer from './ExampleReducer.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

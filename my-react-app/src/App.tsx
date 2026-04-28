@@ -10,7 +10,9 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import ReadMore from './ReadMore';
 import Parent from './Parent';
 import ExampleRef from './ExampleRef';
-
+import {Provider}  from 'react-redux';
+import store from './store/store';
+import CounterExample from './CounterExample';
 
 function App() {
 
@@ -19,7 +21,8 @@ function App() {
     <>
     <ErrorBoundary fallbackRender={() => <div>Something went wrong.</div>}>
     <LanguageContext.Provider value={{lan, setLan}}>
-     
+      
+     <Provider store={store}>
       <BrowserRouter>
        <AppHeader/>
      <Routes>
@@ -30,12 +33,15 @@ function App() {
       <Route path="/exampleRef" element={<ExampleRef/>}/>
       <Route path="/readmore" 
       element={<ReadMore text="This is a long text that will be truncated if it exceeds 50 characters." />}/>
+      
+      <Route path="/counter" element={<CounterExample/>}/>
       <Route path="*" element={<div>Page Not Found</div>}/>
      </Routes>
   
       </BrowserRouter>
+      </Provider>
     </LanguageContext.Provider>
-   
+      
    </ErrorBoundary>
     </>
   )
