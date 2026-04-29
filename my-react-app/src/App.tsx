@@ -14,6 +14,8 @@ import {Provider}  from 'react-redux';
 import store from './store/store';
 import CounterExample from './CounterExample';
 import UserRedux from './UserRedux';
+import SagaCounter from './SagaCounter';
+import ProductDetailsInfo from './ProductDetailsInfo';
 
 function App() {
 
@@ -36,8 +38,10 @@ function App() {
       element={<ReadMore text="This is a long text that will be truncated if it exceeds 50 characters." />}/>
       
       <Route path="/counter" element={<CounterExample/>}/>
+      <Route path="/productdetails" element={<ProductDetailsInfo/>}/>
       <Route path="*" element={<div>Page Not Found</div>}/>
       <Route path="/userredux" element={<UserRedux/>}/>
+      <Route path="/sagacounter" element={<SagaCounter/>}/>
      </Routes>
   
       </BrowserRouter>
