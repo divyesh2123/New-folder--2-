@@ -16,6 +16,12 @@ import CounterExample from './CounterExample';
 import UserRedux from './UserRedux';
 import SagaCounter from './SagaCounter';
 import ProductDetailsInfo from './ProductDetailsInfo';
+import NormalFunction from './NormalFunction';
+import ProductWithPagination from './ProductWithPagination';
+import HOCLayout from './HOCLayout';
+import UserInfo from './UserHoc';
+
+const HomeWithLayout = HOCLayout(Home);
 
 function App() {
 
@@ -27,7 +33,7 @@ function App() {
       
      <Provider store={store}>
       <BrowserRouter>
-       <AppHeader/>
+    
      <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/formik" element={<FormikCaptchaForm/>}/>
@@ -42,6 +48,10 @@ function App() {
       <Route path="*" element={<div>Page Not Found</div>}/>
       <Route path="/userredux" element={<UserRedux/>}/>
       <Route path="/sagacounter" element={<SagaCounter/>}/>
+      <Route path="/normalFunction" element={<NormalFunction/>}/> 
+      <Route path="/productpagination" element={<ProductWithPagination/>}/>
+      <Route path="/hoclayout" element={<HomeWithLayout/>}/>
+      <Route path="/UserInfo" element={<UserInfo/>}/>
      </Routes>
   
       </BrowserRouter>
