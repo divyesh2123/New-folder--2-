@@ -1,11 +1,8 @@
-import { call, put, takeLatest, takeLeading } from 'redux-saga/effects';
+import { call, put, takeLeading } from 'redux-saga/effects';
 import productService from '../service/productservice';
 import { requestProducts, requestProductsFailure, requestProductsSuccess } from '../slice/productslice';
 
-
-export* from 'redux-saga/effects';
-
-export function* fetchProducts() {  
+export function* fetchProducts(): Generator<any, void, any> {  
     try
     {
     const data = yield call(productService);

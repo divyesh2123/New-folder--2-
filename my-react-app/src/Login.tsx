@@ -19,7 +19,7 @@ export default function Login() {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        axios.post("http://localhost:8080/api/auth/signin",formData).then(a=>{
+        axios.post("http://localhost:8080/api/auth/signin",formData).then(() => {
 
         })
         console.log(formData);

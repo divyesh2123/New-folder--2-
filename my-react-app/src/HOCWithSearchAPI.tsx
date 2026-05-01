@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function HOCWithSearchAPI(Component: React.ComponentType,
+export default function HOCWithSearchAPI(Component: React.ComponentType<{ data: any[] }>,
     entity:string) {
   return function HOC() {
 
-    const [data,setdata] = React.useState([]);  
+    const [data,setdata] = React.useState<any[]>([]);  
 
     const [searchTerm, setSearchTerm] = React.useState('');
 

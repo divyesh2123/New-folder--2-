@@ -6,7 +6,7 @@ import AppHeader from './AppHeader';
 import DisplayObject from './DisplayObject';
 import { ErrorBoundary } from "react-error-boundary";
 import Home from './Home';
-import { BrowserRouter, Route, Routes } from 'react-router';
+import { BrowserRouter, Link, Route, Routes } from 'react-router';
 import ReadMore from './ReadMore';
 import Parent from './Parent';
 import ExampleRef from './ExampleRef';
@@ -20,6 +20,10 @@ import NormalFunction from './NormalFunction';
 import ProductWithPagination from './ProductWithPagination';
 import HOCLayout from './HOCLayout';
 import UserInfo from './UserHoc';
+import NestedTopLevel from './NestedTopLevel';
+import HtmlInfo from './HtmlInfo';
+import ReadValueFromUrl from './ReadValueFromUrl';
+import RouteInfo from './RouteInfo';
 
 const HomeWithLayout = HOCLayout(Home);
 
@@ -34,7 +38,10 @@ function App() {
      <Provider store={store}>
       <BrowserRouter>
     
-     <Routes>
+      <RouteInfo/>
+
+      
+     {/* <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/formik" element={<FormikCaptchaForm/>}/>
       <Route path="/display" element={<DisplayObject/>}/>
@@ -52,7 +59,15 @@ function App() {
       <Route path="/productpagination" element={<ProductWithPagination/>}/>
       <Route path="/hoclayout" element={<HomeWithLayout/>}/>
       <Route path="/UserInfo" element={<UserInfo/>}/>
-     </Routes>
+       <Route path="/readvalueFromUrl/:abc" element={<ReadValueFromUrl/>}/>
+      <Route path="/NestedTopLevel" element={<NestedTopLevel/>}>
+    
+        <Route path='HtmlInfo' element={<HtmlInfo/>}/>
+      
+
+      </Route>
+
+     </Routes> */}
   
       </BrowserRouter>
       </Provider>

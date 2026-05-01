@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 export default function ProductWithPagination() {
 
-    const [products, setProducts] = React.useState([]);
+    const [products, setProducts] = React.useState<Array<{ id: number }>>([]);
     const [currentPage, setCurrentPage] = React.useState(1);
     const productsPerPage = 5;
     

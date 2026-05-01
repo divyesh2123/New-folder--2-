@@ -6,11 +6,7 @@ import rootSaga from '../saga/index';
 import productInfo from '../slice/productslice';
 
 const sagaMiddleware = createSagaMiddleware();
-const store = configureStore<{
-    counter: ReturnType<typeof counterReducer>;
-    userInfo: ReturnType<typeof userReducer>;
-    product: ReturnType<typeof productInfo>;
-}>({
+const store = configureStore({
     reducer: {
         counter:counterReducer,
         userInfo:userReducer,

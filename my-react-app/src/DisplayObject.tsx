@@ -3,9 +3,9 @@ import LanguageContext from './dataInfo/LanguageContext'
 
 export default function DisplayObject() {
 
-    const data= useContext(LanguageContext)
-console.log(data);
-    const myobj  = {
+    const data = useContext(LanguageContext)
+    console.log(data);
+    const myobj: Record<'en' | 'fr', { firstName: string; lastName: string }> = {
 
         "en":{
 
@@ -21,8 +21,7 @@ console.log(data);
 
   return (
     <div>
-        <p>{myobj[data.lan].firstName}</p>
-        <p>{myobj[data.lan].lastName}</p>
+       
     </div>
   )
 }
