@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 interface IToDo {
     userId: number;
@@ -9,6 +9,7 @@ interface IToDo {
 
 export default function ToDoForm() {
 
+  const queryClient = useQueryClient()
 
 
     const [data, setData] = React.useState<IToDo>({        
@@ -37,6 +38,7 @@ export default function ToDoForm() {
 
     // Called when the mutation succeeds
     onSuccess: (data) => {
+        queryClient.invalidateQueries({ queryKey: ['users'] })
       console.log("Todo added successfully:", data);
     },
 

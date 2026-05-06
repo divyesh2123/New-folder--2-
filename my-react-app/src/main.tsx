@@ -17,6 +17,9 @@ import ExampleReducer from './ExampleReducer.tsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Example from './Example.tsx'
 import ToDoForm from './ToDoForm.tsx'
+import PostWithPagination from './PostWithPagination.tsx'
+import InfiniteScrollExample from './InfiniteScrollExample.tsx'
+import MyGraphData from './MyGraphData.tsx'
 
 const queryClient = new QueryClient();
 
@@ -25,8 +28,9 @@ createRoot(document.getElementById('root')!).render(
    <QueryClientProvider client={queryClient}>
     {/* <LoginWithMUI/>
     <UserDetails/> */}
-    <Example />
-    <ToDoForm/>
+   
+    <MyGraphData/>
+  
     </QueryClientProvider>
   </StrictMode>,
 )
