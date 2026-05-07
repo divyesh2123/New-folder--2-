@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    environment {
+        SERVER_IP = "172.31.43.15"
+        DEPLOY_DIR = "/var/www/html"
+    }
+
+    stages {
+
+        stage('Clone Code') {
+            steps {
+                git 'https://github.com/divyesh2123/New-folder--2-.git'
+            }
+        }
+
+        stage('Deploy to Apache Server') {
+            steps {
+                sh '''
+                ssh -o StrictHostKeyChecking=no ubuntu@$SERVER_IP "rm -rf $DEPLOY_DIR/*"
+
+                scp -o StrictHostKeyChecking=no -r * ubuntu@$SERVER_IP:$DEPLOY_DIR
+                '''
+            }
+        }
+
+    }
+}
