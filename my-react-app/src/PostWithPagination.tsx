@@ -19,7 +19,7 @@ const { data, isFetching } = useQuery({
   return (
     <div>
 
-     <ul>
+     {/* <ul>
         {data?.map(post => (
           <li key={post.id}>{post.title}</li>
         ))}
@@ -36,7 +36,7 @@ const { data, isFetching } = useQuery({
 >
   Next
 </button>
-      </div>
+      </div> */}
 
       {isFetching && <p>Loading more...</p>}
     

@@ -22,7 +22,7 @@ const CREATE_ALBUM_EXAMPLE = gql`
 
 
 
-const [createAlbum, { loading, error, data }] = useMutation(CREATE_ALBUM, {
+const [createAlbum, { loading, error, data }] = useMutation(CREATE_ALBUM_EXAMPLE, {
 
     onCompleted: (data) => {
         console.log('Album created successfully:', data);

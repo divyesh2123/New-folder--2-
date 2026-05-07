@@ -20,6 +20,8 @@ import ToDoForm from './ToDoForm.tsx'
 import PostWithPagination from './PostWithPagination.tsx'
 import InfiniteScrollExample from './InfiniteScrollExample.tsx'
 import MyGraphData from './MyGraphData.tsx'
+import ExampleWithDesign from './ExampleWithDesign.tsx'
+
 
 const queryClient = new QueryClient();
 
@@ -29,7 +31,7 @@ createRoot(document.getElementById('root')!).render(
     {/* <LoginWithMUI/>
     <UserDetails/> */}
    
-    <MyGraphData/>
+    <ExampleWithDesign/>
   
     </QueryClientProvider>
   </StrictMode>,

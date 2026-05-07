@@ -20,7 +20,6 @@ export default function MainLayout() {
         <p>This is the main layout of the application.</p>
         <CustComLink to="/" >Home</CustComLink>
         <CustComLink to="/schedule"  >Schedule</CustComLink>
-
         <Outlet/>
         <footer>
             <p>© 2024 My React App. All rights reserved.</p>
