@@ -10,16 +10,28 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/divyesh2123/New-folder--2-.git'
+                git branch: 'main',
+                    url: 'https://github.com/divyesh2123/New-folder--2-.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Build React App') {
+            steps {
+                sh 'npm run build'
             }
         }
 
         stage('Deploy to Apache Server') {
             steps {
                 sh '''
-                ssh -o StrictHostKeyChecking=no ubuntu@$SERVER_IP "rm -rf $DEPLOY_DIR/*"
-
-                scp -o StrictHostKeyChecking=no -r * ubuntu@$SERVER_IP:$DEPLOY_DIR
+                ssh -o StrictHostKeyChecking=no ubuntu@$SERVER_IP "sudo rm -rf $DEPLOY_DIR/*"
+                scp -o StrictHostKeyChecking=no -r build/* ubuntu@$SERVER_IP:$DEPLOY_DIR
                 '''
             }
         }
